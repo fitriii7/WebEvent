@@ -21,9 +21,33 @@ Route::get('/', function () {
 
 //auth route for both
 
-Route::group(['middleware' => ['auth']], function(){
-    Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->name
-    ('dashboard');
+// Route::group(['middleware' => ['auth']], function(){
+//     Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->name
+//     ('dashboard');
+// });
+
+//auth route for admin
+
+Route::group(['middleware' => ['auth', 'role:admin']], function(){
+    Route::get('/dashboard/content', 'App\Http\Controllers\DashboardController@content')->name
+    ('dashboard.content');
+    Route::post('/dashboard/content/store', 'App\Http\Controllers\DashboardController@storeContent')->name
+    ('dashboard.store.content');
+    Route::get('/dashboard/payment', 'App\Http\Controllers\DashboardController@payment')->name
+    ('dashboard.payment');
+    Route::get('/dashboard/addSlider', 'App\Http\Controllers\DashboardController@addSlider')->name
+    ('dashboard.addSlider');
+
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+Route::get('/dashboard/create/event', 'App\Http\Controllers\EventController@index')->name
+    ('dashboard.create.event');
+
+
+
 
 require __DIR__.'/auth.php';
