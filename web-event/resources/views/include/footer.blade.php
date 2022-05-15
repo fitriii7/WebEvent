@@ -134,7 +134,7 @@
   <!-- Copyright -->
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
     © 2022 Copyright:
-    <a class="text-white" href="">web-event.com</a>
+    <a class="text-white" href="">jakarta-event.com</a>
   </div>
   <!-- Copyright -->
 </footer>
