@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class EventCategory extends Model
 {
     use HasFactory;
-    protected $table = "event_category";
+    protected $table = "category_event";
     protected $fillable = [
         'category',
     ];
