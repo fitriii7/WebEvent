@@ -2,13 +2,6 @@
     <div class="container mt-5">
             <div class="row">
                 <div class="col-md-12">
-
-                @if (session('status'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                     <strong>Success!</strong> Content for Slider Added Successfully.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                @endif
                     <div class="card">
                         <div class="card-header">
                             <h4>
@@ -17,9 +10,8 @@
                             </h4>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('dashboard.store.content') }}" method="POST" enctype="multipart/form-data" class="was-validate">
+                            <form action="{{ route('dashboard.store.event') }}" method="POST" enctype="multipart/form-data" class="was-validate">
                                 @csrf
-
                                 <div class="form-group">
                                     <label for="">Event Title</label>
                                     <input type="text" name="title" class="form-control" required>
@@ -30,7 +22,7 @@
                                 <div class="form-group">
                                     <label for="name" class="col-md-4 col-form-label">Event Category</label>
                                     <div class="col-md-6">
-                                        <select name="event_category" id="province" class="form-control" required>
+                                        <select name="category" id="province" class="form-control" required>
                                             <option value="">Select Event Category</option>
                                             @foreach ($eventCategory as $item => $category)
                                                 <option value="{{ $category }}">{{ $category }}</option>
@@ -43,7 +35,7 @@
 
                                 <div class="form-group">
                                     <label for="">Event Organizer</label>
-                                    <input type="text" name="event_type" class="form-control" required>
+                                    <input type="text" name="event_organizer" class="form-control" required>
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
@@ -52,8 +44,8 @@
                                     <label for="">Location</label>
                                     <div class="col-md-6 mb-3">
                                         <select name="event_type" id="event_type" class="form-control" required>
-                                            <option value="0">Offline</option>
-                                            <option value="1">Online</option>
+                                            <option value="Offline">Offline</option>
+                                            <option value="Online">Online</option>
                                         </select>
                                         <div class="valid-feedback">Valid.</div>
                                         <div class="invalid-feedback">Please fill out this field.</div>
@@ -105,11 +97,13 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="">Event Description</label>
+                                    <label for="">Price</label>
                                     <input type="text" name="price" class="form-control" required>
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
+
+                                <input type="hidden" value="hide" name="status" >
 
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-outline-dark float-right">Save</button>
@@ -123,6 +117,5 @@
 </x-app-layout>
 <script>
     $("#datepicker_start").datepicker();
-
     $("#datepicker_end").datepicker();
 </script>

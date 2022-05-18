@@ -7,6 +7,12 @@
         <div class="container mt-5">
             <div class="row">
                 <div class="col-md-12">
+                    @if (session('status'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                         <strong>Success!</strong> Content for Slider Added Successfully.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    @endif
                     <div class="card">
                         <div class="card-header">
                             <h4>
@@ -23,25 +29,33 @@
                                         <th>Image</th>
                                         <th>Status</th>
                                         <th>Edit</th>
+                                        <th>Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($slider as $item)
+                                    @foreach ($slider as $item => $value)
                                     <tr>
-                                        <td>{{$item -> id}}</td>
-                                        <td>{{$item -> heading}}</td>
+                                        <td>{{$value -> id}}</td>
+                                        <td>{{$value -> heading}}</td>
                                         <td>
-                                            <img src="{{ asset('uploads/slider/'.$item->image) }}" width="100px" alt="Slider Image">
+                                            <img src="{{ asset('uploads/slider/'.$value->image) }}" width="100px" alt="Slider Image">
                                         </td>
                                         <td>
-                                            @if($item -> status == '1')
+                                            @if($value -> status == '1')
                                             Hidden
                                             @else 
                                             Visible
                                             @endif
                                         </td>
                                         <td>
-                                        <a href="" class="btn btn-outline-warning float-center">Edit</a> 
+                                        <a href=" {{ url('dashboard/editSlider/'.$value->id) }}" class="btn btn-outline-warning float-center">Edit</a> 
+                                        </td>
+                                        <td>
+                                            <form action=" {{ url('dashboard/content/'.$value->id) }}" method="POST">
+                                                @csrf
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <button class="btn btn-outline-danger" type="submit">Delete</button>
+                                            </form>
                                         </td>
                                     </tr>
                                     @endforeach

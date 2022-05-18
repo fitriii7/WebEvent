@@ -1,5 +1,6 @@
 <x-app-layout>
-    <div class="container mt-5">
+    @include ('include/slider')
+    {{-- <div class="container mt-5">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -15,5 +16,5 @@
                     </div>
                 </div>
             </div>
-    </div>
+    </div> --}}
 </x-app-layout>

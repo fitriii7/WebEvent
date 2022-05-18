@@ -21,10 +21,10 @@ Route::get('/', function () {
 
 //auth route for both
 
-// Route::group(['middleware' => ['auth']], function(){
-//     Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->name
-//     ('dashboard');
-// });
+Route::group(['middleware' => ['auth']], function(){
+    Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->name
+    ('dashboard');
+});
 
 //auth route for admin
 
@@ -37,15 +37,29 @@ Route::group(['middleware' => ['auth', 'role:admin']], function(){
     ('dashboard.payment');
     Route::get('/dashboard/addSlider', 'App\Http\Controllers\DashboardController@addSlider')->name
     ('dashboard.addSlider');
+    Route::get('/dashboard/editSlider/{id}', 'App\Http\Controllers\DashboardController@editSlider')->name
+    ('dashboard.editSlider');
+    Route::put('dashboard/updateSlider/{id}', 'App\Http\Controllers\DashboardController@updateSlider')->name
+    ('dashboard.updateSlider');
+    Route::post('/dashboard/content/{$id}', 'App\Http\Controllers\DashboardController@destroySlider')->name
+    ('dashboard.destroySlider');
 
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth'])->name('dashboard');
 
-Route::get('/dashboard/create/event', 'App\Http\Controllers\EventController@index')->name
+Route::get('/dashboard/create/event', 'App\Http\Controllers\EventController@create')->name
     ('dashboard.create.event');
+
+Route::post('/dashboard/store/event', 'App\Http\Controllers\EventController@store')->name
+('dashboard.store.event');
+Route::get('/dashboard/event', 'App\Http\Controllers\EventController@index')->name
+('dashboard.event');
+
+Route::get('/dashboard/event/detail/{$id}', 'App\Http\Controllers\EventController@show')->name
+('dashboard.show.event');
 
 
 

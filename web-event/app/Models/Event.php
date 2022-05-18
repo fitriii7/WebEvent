@@ -10,6 +10,9 @@ class Event extends Model
     use HasFactory;
     protected $table = "event";
     protected $fillable = [
+        'title',
+        'event_type',
+        'event_oragnizer',
         'category',
         'location',
         'start_time',

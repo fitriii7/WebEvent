@@ -5,17 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 use Auth;
+use Faker\Core\File;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-
-        if(Auth::user()->hasRole('user')){
-            return view('userdashboard');
-        }elseif(Auth::user()->hasRole('admin')){
-            return view('admindashboard');
-        }
+        $slider = Slider::where('status', '0')->get();
+        return view('dashboard', compact('slider'));
+    
     }
 
     public function content()
@@ -41,12 +39,51 @@ class DashboardController extends Controller
         }
         $slider->status = $request->input('status') == true ? '1' : '0';
         $slider->save();
-        return redirect()->back()->with('status', 'Content for Slider Added Successfully');
+        return redirect('dashboard/content')->with('status', 'Content for Slider Added Successfully');
     }
 
     public function addSlider()
     {
         return view('add_slider');
+    }
+
+    public function editSlider($id)
+    {
+        
+        $slider = Slider::find($id);
+
+        return view('edit_slider', compact('slider'));
+    }
+
+    public function updateSlider(Request $request, $id)
+    {
+        $slider = Slider::find($id); 
+
+        $slider->heading = $request->input('heading'); 
+        $slider->description = $request->input('description');        
+        $slider->link = $request->input('link');
+        $slider->link_name = $request->input('link_name');
+        if ($request->hasfile('image'))
+        {
+            $destination = 'uploads/slider/'.$slider->image;
+            if(File::exists($destination)){
+                File::delete($destination);
+            }
+            $file = $request->file('image');
+            $extention = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extention;
+            $file->move('uploads/slider/', $filename);
+            $slider->image = $filename;
+        }
+        $slider->status = $request->input('status') == true ? '1' : '0';
+        $slider->save();
+        return redirect('dashboard/content')->with('status', 'Content for Slider Update Successfully');
+    }
+
+    public function destroySlider($id){
+        $slider = Slider::find($id);
+        $slider->delete();
+        return redirect('dashboard/content');
     }
 
     public function payment()
