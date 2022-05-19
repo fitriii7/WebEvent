@@ -1,4 +1,13 @@
 <!DOCTYPE html>
+@php
+use App\Models\Slider;
+use App\Models\Event;
+use Illuminate\Http\Request;
+  
+                $slider = Slider::where('status', '0')->get();
+                $event = Event::all();        
+        
+@endphp
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -33,8 +42,15 @@
     @include ('include/header')
   </head>
     <body>
-        {{-- @include ('include/slider')
-     --}}
+        @include ('include/slider')
+        <br>
+          <div class="container mt-5">
+              <div class="row">
+                  <div class="col-md-12 mb-5">
+                      @include('include/card')
+                  </div>
+                </div>
+          </div>
         @include ('include/footer')
         <script src="{{ asset('js/bootstrap.min.js')}}"></script>
     </body>

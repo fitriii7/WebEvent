@@ -33,9 +33,14 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+
+                                    @php
+                                    $no =1;
+                                    @endphp
+
                                     @foreach ($slider as $item => $value)
                                     <tr>
-                                        <td>{{$value -> id}}</td>
+                                        <td>{{$no++}}</td>
                                         <td>{{$value -> heading}}</td>
                                         <td>
                                             <img src="{{ asset('uploads/slider/'.$value->image) }}" width="100px" alt="Slider Image">
@@ -51,7 +56,8 @@
                                         <a href=" {{ url('dashboard/editSlider/'.$value->id) }}" class="btn btn-outline-warning float-center">Edit</a> 
                                         </td>
                                         <td>
-                                            <form action=" {{ url('dashboard/content/'.$value->id) }}" method="POST">
+                                            {{-- <a href="{{ url('dashboard/content/'.$value->id) }}" class="btn btn-outline-danger float-center">Delete</a>  --}}
+                                            <form action="{{ route('dashboard.destroySlider',$value->id) }}" method="POST">
                                                 @csrf
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <button class="btn btn-outline-danger" type="submit">Delete</button>

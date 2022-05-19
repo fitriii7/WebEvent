@@ -24,7 +24,9 @@
                                         <th>Image</th>
                                         <th>Description</th>
                                         <th>Status</th>
-                                        <th>Action</th>
+                                        <th>Show</th>
+                                        <th>Publish</th>
+                                        <th>Hide</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -38,7 +40,17 @@
                                         <td>{{$value -> event_summ}}</td>
                                         <td>{{$value -> status}}</td>
                                         <td>
-                                        <a href=" {{ url('dashboard/event/detail/'.$value->id) }}" class="btn btn-outline-success float-center">Show Detail</a> 
+                                            <a href=" {{ url('dashboard/event/detail/'.$value->id) }}" class="btn btn-outline-success float-center">Show Detail</a> 
+                                        </td>
+                                        <td>
+                                            <form action=" {{ url('dashboard/event/publish'.$value->id) }}" method="POST">
+                                                @csrf
+                                                <input type="hidden" name="_method" value="publish">
+                                                <button class="btn btn-outline-primary" type="submit">Publish</button>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <a href=" {{ url('dashboard/event/detail/'.$value->id) }}" class="btn btn-outline-warning float-center">Hide</a>
                                         </td>
                                     </tr>
                                     @endforeach

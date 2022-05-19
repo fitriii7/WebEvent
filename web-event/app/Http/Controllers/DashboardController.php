@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Slider;
+use App\Models\Event;
 use Illuminate\Http\Request;
 use Auth;
 use Faker\Core\File;
@@ -12,7 +13,8 @@ class DashboardController extends Controller
     public function index()
     {
         $slider = Slider::where('status', '0')->get();
-        return view('dashboard', compact('slider'));
+        $event = Event::all();
+        return view('dashboard', compact('slider', 'event'));
     
     }
 
@@ -82,8 +84,9 @@ class DashboardController extends Controller
 
     public function destroySlider($id){
         $slider = Slider::find($id);
+        dd($slider)->all();
         $slider->delete();
-        return redirect('dashboard/content');
+        return redirect()->back()->with('success', 'Data has been Deleted!');
     }
 
     public function payment()

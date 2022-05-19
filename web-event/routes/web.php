@@ -39,7 +39,7 @@ Route::group(['middleware' => ['auth', 'role:admin']], function(){
     ('dashboard.addSlider');
     Route::get('/dashboard/editSlider/{id}', 'App\Http\Controllers\DashboardController@editSlider')->name
     ('dashboard.editSlider');
-    Route::put('dashboard/updateSlider/{id}', 'App\Http\Controllers\DashboardController@updateSlider')->name
+    Route::put('/dashboard/updateSlider/{id}', 'App\Http\Controllers\DashboardController@updateSlider')->name
     ('dashboard.updateSlider');
     Route::post('/dashboard/content/{$id}', 'App\Http\Controllers\DashboardController@destroySlider')->name
     ('dashboard.destroySlider');
