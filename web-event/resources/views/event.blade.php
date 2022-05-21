@@ -25,8 +25,8 @@
                                         <th>Description</th>
                                         <th>Status</th>
                                         <th>Show</th>
-                                        <th>Publish</th>
-                                        <th>Hide</th>
+                                        <th>Edit</th>
+                                        <th>Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -40,17 +40,13 @@
                                         <td>{{$value -> event_summ}}</td>
                                         <td>{{$value -> status}}</td>
                                         <td>
-                                            <a href=" {{ url('dashboard/event/detail/'.$value->id) }}" class="btn btn-outline-success float-center">Show Detail</a> 
+                                            <a href=" {{ url('dashboard/event/detail/'.$value->id) }}" class="btn btn-outline-success float-center">Show</a> 
                                         </td>
                                         <td>
-                                            <form action=" {{ url('dashboard/event/publish'.$value->id) }}" method="POST">
-                                                @csrf
-                                                <input type="hidden" name="_method" value="publish">
-                                                <button class="btn btn-outline-primary" type="submit">Publish</button>
-                                            </form>
+                                            <a href=" {{ url('dashboard/event/edit/'.$value->id) }}" class="btn btn-outline-warning float-center">Edit</a> 
                                         </td>
                                         <td>
-                                            <a href=" {{ url('dashboard/event/detail/'.$value->id) }}" class="btn btn-outline-warning float-center">Hide</a>
+                                            <a href=" {{ url('dashboard/event/edit/'.$value->id) }}" class="btn btn-outline-danger float-center">Delete</a> 
                                         </td>
                                     </tr>
                                     @endforeach
