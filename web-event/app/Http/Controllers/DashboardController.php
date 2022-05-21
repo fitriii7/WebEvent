@@ -84,7 +84,6 @@ class DashboardController extends Controller
 
     public function destroySlider($id){
         $slider = Slider::find($id);
-        dd($slider)->all();
         $slider->delete();
         return redirect()->back()->with('success', 'Data has been Deleted!');
     }
