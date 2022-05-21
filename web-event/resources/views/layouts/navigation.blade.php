@@ -21,6 +21,9 @@
           <li class="nav-item">
             <a class="nav-link" href="{{route('dashboard.event')}}" style="font-size: 13pt;"><b>Payment</b></a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('dashboard.user')}}" style="font-size: 13pt;"><b>User List</b></a>
+          </li>
           @endif
         </ul>
         <div class="navbar-nav ml-auto">

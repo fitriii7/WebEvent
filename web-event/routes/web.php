@@ -41,7 +41,7 @@ Route::group(['middleware' => ['auth', 'role:admin']], function(){
     ('dashboard.editSlider');
     Route::put('/dashboard/updateSlider/{id}', 'App\Http\Controllers\DashboardController@updateSlider')->name
     ('dashboard.updateSlider');
-    Route::post('/dashboard/content/{$id}', 'App\Http\Controllers\DashboardController@destroySlider')->name
+    Route::post('/dashboard/content/{id}', 'App\Http\Controllers\DashboardController@destroySlider')->name
     ('dashboard.destroySlider');
 
 });
@@ -59,8 +59,29 @@ Route::post('/dashboard/store/event', 'App\Http\Controllers\EventController@stor
 Route::get('/dashboard/event', 'App\Http\Controllers\EventController@index')->name
 ('dashboard.event');
 
-Route::get('/dashboard/eventDetail/{$id}', 'App\Http\Controllers\EventController@eventDetail')->name
-('dashboard.eventDetail');
+Route::get('/dashboard/event/detail/{id}', 'App\Http\Controllers\EventController@detail')->name
+('dashboard.event.detail');
+
+//user management
+
+Route::get('/dashboard/user', 'App\Http\Controllers\UserController@index')->name
+('dashboard.user');
+
+Route::get('/dashboard/user/create', 'App\Http\Controllers\UserController@create')->name
+('dashboard.user.create');
+
+Route::post('/dashboard/user/store', 'App\Http\Controllers\UserController@store')->name
+('dashboard.user.store');
+
+Route::get('/dashboard/user/edit/{id}', 'App\Http\Controllers\UserController@edit')->name
+('dashboard.user.edit');
+
+Route::put('/dashboard/user/update/{id}', 'App\Http\Controllers\UserController@update')->name
+('dashboard.user.update');
+
+Route::post('/dashboard/user/destroy/{id}', 'App\Http\Controllers\UserController@destroy')->name
+    ('dashboard.user.destroy');
+
 
 
 

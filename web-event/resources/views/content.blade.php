@@ -17,7 +17,7 @@
                         <div class="card-header">
                             <h4>
                             Content Slider
-                            <a href="{{ route('dashboard.addSlider') }}" class="btn btn-outline-dark float-right">Add Slider</a>
+                            <a href="{{ route('dashboard.addSlider') }}" class="btn btn-outline-dark float-right"><i class="bi bi-plus"></i>New Slider</a>
                             </h4>
                         </div>
                         <div class="card-body">

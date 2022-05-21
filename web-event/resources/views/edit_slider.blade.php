@@ -12,7 +12,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h4>
-                            Add New Content Slider
+                            Edit Content Slider
                             <a href="{{ route('dashboard.content') }}" class="btn btn-outline-danger float-right">Back</a>
                             </h4>
                         </div>

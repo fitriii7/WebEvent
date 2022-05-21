@@ -53,7 +53,6 @@ class EventController extends Controller
         $event->capacity = $request->input('capacity');
         $event->price = $request->input('price');
         $event->status = $request->input('status');
-       // dd($event)->all();
         $event->save();
         return redirect('dashboard/event')->with('status', 'Content for New Event Added Successfully');
     }
