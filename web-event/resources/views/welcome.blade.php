@@ -18,9 +18,6 @@ use Illuminate\Http\Request;
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
-    
-
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href={{ asset('css/bootstrap.min.css') }}>
 

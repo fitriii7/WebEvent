@@ -15,10 +15,10 @@ class EventController extends Controller
         return view('event', compact('event'));
     }
 
-    public function view($id){
-        $event= Event::find($id);
-        return view('view_event',compact('event'));
-    }
+    // public function view($id){
+    //     $event= Event::find($id);
+    //     return view('card_detail',compact('event'));
+    // }
     
     public function create() 
     {
@@ -56,6 +56,12 @@ class EventController extends Controller
        // dd($event)->all();
         $event->save();
         return redirect('dashboard/event')->with('status', 'Content for New Event Added Successfully');
+    }
+
+    public function eventDetail($id){
+        dd($id);
+        $event= Event::find($id);
+        return view('card_detail',compact('event'));
     }
 
 }

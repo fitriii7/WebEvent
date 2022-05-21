@@ -55,11 +55,12 @@ Route::get('/dashboard/create/event', 'App\Http\Controllers\EventController@crea
 
 Route::post('/dashboard/store/event', 'App\Http\Controllers\EventController@store')->name
 ('dashboard.store.event');
+
 Route::get('/dashboard/event', 'App\Http\Controllers\EventController@index')->name
 ('dashboard.event');
 
-Route::get('/dashboard/event/detail/{$id}', 'App\Http\Controllers\EventController@show')->name
-('dashboard.show.event');
+Route::get('/dashboard/eventDetail/{$id}', 'App\Http\Controllers\EventController@eventDetail')->name
+('dashboard.eventDetail');
 
 
 

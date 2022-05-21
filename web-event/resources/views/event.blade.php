@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="container mt-5">
+    <div class="container p-5 my-5 border">
         <div class="row">
             <div class="col-md-12">
                 @if (session('status'))

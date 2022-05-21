@@ -14,6 +14,9 @@
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href={{ asset('css/bootstrap.min.css') }}>
+
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
@@ -21,7 +24,9 @@
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/jquery-ui.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/jquery.datetimepicker.css') }}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         
         <!-- Scripts -->
@@ -36,10 +41,12 @@
             <main>
                 {{ $slot }}
             </main>
+            @include ('include/footer')
         </div>
     </body>
     <script type="text/javascript" src="{{asset('js/jquery-3.6.0.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/jquery.datetimepicker.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/jquery.js')}}"></script>
+    <script src="{{ asset('js/bootstrap.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/jquery-ui.min.js')}}"></script>
 </html>
