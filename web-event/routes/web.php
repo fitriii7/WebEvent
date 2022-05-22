@@ -62,6 +62,12 @@ Route::get('/dashboard/event', 'App\Http\Controllers\EventController@index')->na
 Route::get('/dashboard/event/detail/{id}', 'App\Http\Controllers\EventController@detail')->name
 ('dashboard.event.detail');
 
+Route::get('/dashboard/event/edit/{id}', 'App\Http\Controllers\EventController@edit')->name
+('dashboard.event.edit');
+
+Route::put('/dashboard/event/update/{id}', 'App\Http\Controllers\EventController@update')->name
+('dashboard.event.update');
+
 //user management
 
 Route::get('/dashboard/user', 'App\Http\Controllers\UserController@index')->name

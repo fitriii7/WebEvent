@@ -16,42 +16,44 @@
                         </h4>
                         </div>
                         <div class="card-body">
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Title</th>
-                                        <th>Image</th>
-                                        <th>Description</th>
-                                        <th>Status</th>
-                                        <th>Show</th>
-                                        <th>Edit</th>
-                                        <th>Delete</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($event as $item => $value)
-                                    <tr>
-                                    <td>{{$value -> id}}</td>
-                                        <td>{{$value -> title}}</td>
-                                        <td>
-                                            <img src="{{ asset('uploads/event/'.$value->image) }}" width="100px" alt="Slider Image">
-                                        </td>
-                                        <td>{{$value -> event_summ}}</td>
-                                        <td>{{$value -> status}}</td>
-                                        <td>
-                                            <a href=" {{ url('dashboard/event/detail/'.$value->id) }}" class="btn btn-outline-success float-center">Show</a> 
-                                        </td>
-                                        <td>
-                                            <a href=" {{ url('dashboard/event/edit/'.$value->id) }}" class="btn btn-outline-warning float-center">Edit</a> 
-                                        </td>
-                                        <td>
-                                            <a href=" {{ url('dashboard/event/edit/'.$value->id) }}" class="btn btn-outline-danger float-center">Delete</a> 
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                            <div style="overflow-x:auto;">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Title</th>
+                                            <th>Image</th>
+                                            <th>Description</th>
+                                            <th>Status</th>
+                                            <th>Show</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($event as $item => $value)
+                                        <tr>
+                                        <td>{{$value -> id}}</td>
+                                            <td>{{$value -> title}}</td>
+                                            <td>
+                                                <img src="{{ asset('uploads/event/'.$value->image) }}" width="100px" alt="Slider Image">
+                                            </td>
+                                            <td>{{$value -> event_summ}}</td>
+                                            <td>{{$value -> status}}</td>
+                                            <td>
+                                                <a href=" {{ url('dashboard/event/detail/'.$value->id) }}" class="btn btn-outline-success float-center">Show</a> 
+                                            </td>
+                                            <td>
+                                                <a href=" {{ url('dashboard/event/edit/'.$value->id) }}" class="btn btn-outline-warning float-center">Edit</a> 
+                                            </td>
+                                            <td>
+                                                <a href=" {{ url('dashboard/event/edit/'.$value->id) }}" class="btn btn-outline-danger float-center">Delete</a> 
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>

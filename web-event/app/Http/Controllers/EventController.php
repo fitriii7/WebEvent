@@ -57,10 +57,17 @@ class EventController extends Controller
         return redirect('dashboard/event')->with('status', 'Content for New Event Added Successfully');
     }
 
-    public function eventDetail($id){
-        dd($id);
+    public function detail($id){
         $event= Event::find($id);
         return view('card_detail',compact('event'));
+    }
+
+    public function edit($id){
+        $eventCategory = EventCategory::pluck('category');
+        $selectedCategory= Event::first()->category;
+        // dd($eventCategory);
+        $event= Event::find($id);
+        return view('edit_event',compact('event', 'eventCategory', 'selectedCategory'));
     }
 
 }
