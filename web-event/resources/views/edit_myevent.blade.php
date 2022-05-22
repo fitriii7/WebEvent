@@ -6,11 +6,11 @@
                         <div class="card-header">
                             <h4>
                             Edit Event
-                            <a href="{{ route('dashboard.event') }}" class="btn btn-outline-danger float-right">Back</a>
+                            <a href="{{ route('dashboard.my-event') }}" class="btn btn-outline-danger float-right">Back</a>
                             </h4>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('dashboard.event.update', $event->id) }}" method="POST" enctype="multipart/form-data" class="was-validate">
+                            <form action="{{route('dashboard.my-event.update', $event->id) }}" method="POST" enctype="multipart/form-data" class="was-validate">
                                 @csrf
                                 @method('PUT')
                                 <div class="form-group">
@@ -102,15 +102,6 @@
                                     <input type="text" name="price" class="form-control" value="{{$event->price}}" required>
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="">Event Published</label>
-                                    <input type="checkbox" name="status" {{$event->status == '1' ? 'checked':''}}>
-                                    <br>
-                                    Check = Published
-                                    <br>
-                                    Uncheck = Unpublish
                                 </div>
 
                                 <div class="form-group">

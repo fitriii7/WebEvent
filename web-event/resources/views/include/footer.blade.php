@@ -4,23 +4,23 @@
   <div class="container p-4">
     <!-- Section: Social media -->
     <section class="mb-4">
-      <!-- Facebook -->
+      <!-- Facebook 
       <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i class="fa fa-facebook-f"></i
-      ></a>
+        ><i class="fa fa-facebook-f"></i 
+      ></a>-->
 
       <!-- Twitter -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+      <a class="btn btn-outline-light btn-floating m-1" href="https://twitter.com/dindamlv" role="button"
         ><i class="fa fa-twitter"></i
       ></a>
 
-      <!-- Google -->
+      <!-- Google 
       <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
         ><i class="fa fa-google"></i
-      ></a>
+      ></a>-->
 
       <!-- Instagram -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+      <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/dindamlv/" role="button"
         ><i class="fa fa-instagram"></i
       ></a>
     
@@ -133,8 +133,8 @@
 
   <!-- Copyright -->
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-    © 2022 Copyright:
-    <a class="text-white" href="">jakarta-event.com</a>
+    © 2022
+    <a class="text-white" href="http://127.0.0.1:8000/">jevent.com</a>
   </div>
   <!-- Copyright -->
 </footer>

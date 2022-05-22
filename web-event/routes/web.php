@@ -95,6 +95,31 @@ Route::post('/dashboard/user/destroy/{id}', 'App\Http\Controllers\UserController
     ('dashboard.user.destroy');
 
 
+//My Profile 
+Route::get('/dashboard/profile', 'App\Http\Controllers\ProfileController@index')->name
+('dashboard.profile');
+
+Route::get('/dashboard/changepassword', 'App\Http\Controllers\ProfileController@password')->name
+('dashboard.changepassword');
+
+Route::get('/dashboard/profile/edit', 'App\Http\Controllers\ProfileController@edit')->name
+('dashboard.profile.edit');
+
+Route::put('/dashboard/profile/update', 'App\Http\Controllers\ProfileController@update')->name
+('dashboard.profile.update');
+
+//My Event 
+Route::get('/dashboard/my-event', 'App\Http\Controllers\MyEventController@index')->name
+('dashboard.my-event');
+
+Route::get('/dashboard/my-event/edit/{id}', 'App\Http\Controllers\MyEventController@edit')->name
+('dashboard.my-event.edit');
+
+Route::put('/dashboard/my-event/update/{id}', 'App\Http\Controllers\MyEventController@update')->name
+('dashboard.my-event.update');
+
+Route::post('/dashboard/my-event/destroy/{id}', 'App\Http\Controllers\MyEventController@destroy')->name
+('dashboard.my-event.destroy');
 
 
 

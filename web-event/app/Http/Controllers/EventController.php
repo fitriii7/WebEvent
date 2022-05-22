@@ -6,6 +6,7 @@ use App\Models\Event;
 use App\Models\EventCategory;
 use Illuminate\Http\Request;
 use carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class EventController extends Controller
 {
@@ -55,7 +56,7 @@ class EventController extends Controller
         $event->status = $request->input('status');
         $event->author = $request->input('author');
         $event->save();
-        return redirect('dashboard/event')->with('statusadd', 'Content for New Event Added Successfully');
+        return redirect('dashboard/my-event')->with('statusadd', 'Content for New Event Added Successfully');
     }
 
     public function detail($id){
@@ -73,6 +74,7 @@ class EventController extends Controller
 
     public function update(Request $request, $id){
         $event = Event::find($id);
+        $user = Auth::user()->id;
 
         $startdate = $request->input('start_time');
         $format_startdate = date('Y-m-d', strtotime($startdate));
@@ -102,7 +104,7 @@ class EventController extends Controller
         $event->capacity = $request->input('capacity');
         $event->price = $request->input('price');
         $event->status = $request->input('status') == true ? '1' : '0';
-        $event->author = $request->input('author');
+        $event->author = $user;
         $event->save();
         return redirect('dashboard/event')->with('statusupdate', 'Event Updated Succeddfully');
     }

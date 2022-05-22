@@ -43,8 +43,8 @@
 
                     <x-slot name="content">
                         <!-- Authentication -->
-                        <a class="dropdown-item" href="{{ route('dashboard.create.event') }}">My Profile</a>
-                        <a class="dropdown-item" href="#">My Event</a>
+                        <a class="dropdown-item" href="{{ route('dashboard.profile')}}">My Profile</a>
+                        <a class="dropdown-item" href="{{ route('dashboard.my-event')}}">My Event</a>
                         <a class="dropdown-item" href="#">My Booking</a>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
