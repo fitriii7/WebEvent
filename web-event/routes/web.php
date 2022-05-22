@@ -43,6 +43,8 @@ Route::group(['middleware' => ['auth', 'role:admin']], function(){
     ('dashboard.updateSlider');
     Route::post('/dashboard/content/{id}', 'App\Http\Controllers\DashboardController@destroySlider')->name
     ('dashboard.destroySlider');
+    Route::post('/dashboard/content/destroy/{id}', 'App\Http\Controllers\DashboardController@destroy')->name
+('dashboard.content.destroy');
 
 });
 
@@ -67,6 +69,10 @@ Route::get('/dashboard/event/edit/{id}', 'App\Http\Controllers\EventController@e
 
 Route::put('/dashboard/event/update/{id}', 'App\Http\Controllers\EventController@update')->name
 ('dashboard.event.update');
+
+Route::post('/dashboard/event/destroy/{id}', 'App\Http\Controllers\EventController@destroy')->name
+('dashboard.event.destroy');
+
 
 //user management
 

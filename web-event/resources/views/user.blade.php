@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="container p-5 my-5 border">
+    <div class="container mt-5">
         <div class="row">
             <div class="col-md-12">
                 @if (session('status'))
@@ -28,42 +28,44 @@
                         </h4>
                         </div>
                         <div class="card-body">
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Edit</th>
-                                        <th>Delete</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @php
-                                    $no =1;
-                                    @endphp
-                                    @foreach ($users as $item => $user)
-                                    <tr>
-                                    <td>{{$no++}}</td>   
-                                    <td>{{$user->name}}</td>
-                                    <td>{{$user->email}}</td>
-                                    <td>
-                                        <a href="{{url('dashboard/user/edit/'.$user->id)}}" class="btn btn-outline-warning float-center">Edit</a> 
-                                    </td>
-                                    <td>
-                                        <form action="{{url('dashboard/user/destroy/'.$user->id)}}" method="POST">
-                                            @csrf
-                                            <input type="hidden" name="_method">
-                                            <button class="btn btn-outline-danger" type="submit">Delete</button>
-                                        </form>
-                                    </td> 
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                            <div style="overflow-x:auto;">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @php
+                                        $no =1;
+                                        @endphp
+                                        @foreach ($users as $item => $user)
+                                        <tr>
+                                        <td>{{$no++}}</td>   
+                                        <td>{{$user->name}}</td>
+                                        <td>{{$user->email}}</td>
+                                        <td>
+                                            <a href="{{url('dashboard/user/edit/'.$user->id)}}" class="btn btn-outline-warning float-center">Edit</a> 
+                                        </td>
+                                        <td>
+                                            <form action="{{url('dashboard/user/destroy/'.$user->id)}}" method="POST">
+                                                @csrf
+                                                <input type="hidden" name="_method">
+                                                <button class="btn btn-outline-danger" type="submit">Delete</button>
+                                            </form>
+                                        </td> 
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-    </div>
+        </div>
 </x-app-layout>

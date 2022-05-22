@@ -23,5 +23,7 @@ class Event extends Model
         'event_desc',
         'capacity',
         'price',
+        'status',
+        'author',
     ];
 }

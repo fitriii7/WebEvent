@@ -5,7 +5,7 @@ use App\Models\Event;
 use Illuminate\Http\Request;
   
                 $slider = Slider::where('status', '0')->get();
-                $event = Event::all();        
+                $event = Event::where('status', '1')->get();        
         
 @endphp
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">

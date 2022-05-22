@@ -13,7 +13,7 @@ class DashboardController extends Controller
     public function index()
     {
         $slider = Slider::where('status', '0')->get();
-        $event = Event::all();
+        $event = Event::where('status', '1')->get();
         return view('dashboard', compact('slider', 'event'));
     
     }
@@ -41,7 +41,7 @@ class DashboardController extends Controller
         }
         $slider->status = $request->input('status') == true ? '1' : '0';
         $slider->save();
-        return redirect('dashboard/content')->with('status', 'Content for Slider Added Successfully');
+        return redirect('dashboard/content')->with('statusadd', 'Content for Slider Added Successfully');
     }
 
     public function addSlider()
@@ -79,13 +79,13 @@ class DashboardController extends Controller
         }
         $slider->status = $request->input('status') == true ? '1' : '0';
         $slider->save();
-        return redirect('dashboard/content')->with('status', 'Content for Slider Update Successfully');
+        return redirect('dashboard/content')->with('statusupdate', 'Content for Slider Update Successfully');
     }
 
-    public function destroySlider($id){
+    public function destroy($id){
         $slider = Slider::find($id);
         $slider->delete();
-        return redirect()->back()->with('success', 'Data has been Deleted!');
+        return redirect()->back()->with('statusdelete', 'Data has been Deleted!');
     }
 
     public function payment()

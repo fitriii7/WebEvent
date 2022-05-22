@@ -35,7 +35,7 @@
 
                                 <div class="form-group">
                                     <label for="">Event Organizer</label>
-                                    <input type="text" name="event_organizer" class="form-control" required>
+                                    <input type="text" name="event_organizer" value="{{$event->event_organizer}}" class="form-control" required>
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
@@ -43,7 +43,7 @@
                                 <div class="form-group">
                                     <label for="">Location</label>
                                     <div class="col-md-6 mb-3">
-                                        <select name="event_type" id="event_type" class="form-control" required>
+                                        <select name="event_type" id="event_type" value="{{$event->event_type}}" class="form-control" required>
                                             <option value="Offline">Offline</option>
                                             <option value="Online">Online</option>
                                         </select>
@@ -51,59 +51,67 @@
                                         <div class="invalid-feedback">Please fill out this field.</div>
                                     </div>
                                     <label class="ml-2" for="">Input with Location when the Event is Offline, and Input with Link when the Event is Online</label>
-                                    <input type="text" name="location" class="form-control ml-2" required>
+                                    <input type="text" name="location" class="form-control ml-2" value="{{$event->location}}" required>
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Start Time</label>
-                                    <input type="text" id="datepicker_start" name="start_time" class="form-control" required>
+                                    <input type="text" id="datepicker_start" name="start_time" value="{{$event->start_time}}" class="form-control" required>
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
                                 <div class="form-group">
                                     <label for="">End Time</label>
-                                    <input type="text" id="datepicker_end" name="end_time" class="form-control" required>
+                                    <input type="text" id="datepicker_end" name="end_time" value="{{$event->end_time}}" class="form-control" required>
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="">Event Image Upload</label>
-                                    <input type="file" name="image" class="form-control mb-1" required>
+                                    <input type="file" name="image" class="form-control mb-1">
+                                    <img src="{{asset('uploads/event/'.$event->image) }}" width="100px" alt="Slider Image"> 
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="">Event Summary</label>
-                                    <input type="text" name="event_summ" class="form-control" required>
+                                    <input type="textarea" name="event_summ" class="form-control"value="{{$event->event_summ}}"  required>
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="">Event Description</label>
-                                    <input type="text" name="event_desc" class="form-control" required>
+                                    <textarea type="text" name="event_desc" class="form-control" value="{{$event->event_desc}}" required></textarea>
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="">Capacity</label>
-                                    <input type="text" name="capacity" class="form-control" required>
+                                    <input type="text" name="capacity" class="form-control" value="{{$event->capacity}}"  required>
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="">Price</label>
-                                    <input type="text" name="price" class="form-control" required>
+                                    <input type="text" name="price" class="form-control" value="{{$event->price}}" required>
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
 
-                                <input type="hidden" value="hide" name="status" >
+                                <div class="form-group">
+                                    <label for="">Event Published</label>
+                                    <input type="checkbox" name="status" {{$event->status == '1' ? 'checked':''}}>
+                                    <br>
+                                    Check = Published
+                                    <br>
+                                    Uncheck = Unpublish
+                                </div>
 
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-outline-dark float-right">Save</button>

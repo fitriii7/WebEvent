@@ -103,7 +103,9 @@
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
 
-                                <input type="hidden" value="hide" name="status" >
+                                <input type="text" name="status" class="form-control" value="1" required hidden>
+
+                                <input type="text" name="author" class="form-control" value="{{ Auth::user()->id}}" required hidden>
 
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-outline-dark float-right">Save</button>

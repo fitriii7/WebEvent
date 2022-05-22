@@ -1,10 +1,22 @@
 <x-app-layout>
-    <div class="container p-5 my-5 border">
+    <div class="container mt-5">
         <div class="row">
             <div class="col-md-12">
-                @if (session('status'))
+                @if (session('statusadd'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
-                     <strong>Success!</strong> Content for Slider Added Successfully.
+                     <strong>Success! </strong>New Event Added Successfully.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                @endif
+                @if (session('statusupdate'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                     <strong>Success! </strong>Event Data Update Successfully.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                @endif
+                @if (session('statusdelete'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                     <strong>Success! </strong>Event Data has been Deleted!.
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 @endif
@@ -18,6 +30,10 @@
                         <div class="card-body">
                             <div style="overflow-x:auto;">
                                 <table class="table table-striped">
+                                    @php
+                                    $no =1;
+                                    @endphp
+                                    
                                     <thead>
                                         <tr>
                                             <th>ID</th>
@@ -33,13 +49,17 @@
                                     <tbody>
                                         @foreach ($event as $item => $value)
                                         <tr>
-                                        <td>{{$value -> id}}</td>
+                                            <td>{{$no++}}</td>
                                             <td>{{$value -> title}}</td>
                                             <td>
                                                 <img src="{{ asset('uploads/event/'.$value->image) }}" width="100px" alt="Slider Image">
                                             </td>
                                             <td>{{$value -> event_summ}}</td>
-                                            <td>{{$value -> status}}</td>
+                                            <?php if ($value-> status == 1) { ?>
+                                                <td>Published</td>
+                                           <?php }else{ ?>
+                                           <td>pending</td>
+                                            <?php }?>
                                             <td>
                                                 <a href=" {{ url('dashboard/event/detail/'.$value->id) }}" class="btn btn-outline-success float-center">Show</a> 
                                             </td>
@@ -47,7 +67,11 @@
                                                 <a href=" {{ url('dashboard/event/edit/'.$value->id) }}" class="btn btn-outline-warning float-center">Edit</a> 
                                             </td>
                                             <td>
-                                                <a href=" {{ url('dashboard/event/edit/'.$value->id) }}" class="btn btn-outline-danger float-center">Delete</a> 
+                                                <form action="{{url('dashboard/event/destroy/'.$value->id)}}" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="_method">
+                                                    <button class="btn btn-outline-danger" type="submit">Delete</button>
+                                                </form>
                                             </td>
                                         </tr>
                                         @endforeach

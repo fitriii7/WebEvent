@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('event', function (Blueprint $table) {
-            $table->string('status');
+             $table->tinyInteger('status')->default('1')->nullable();
         });
     }
 
