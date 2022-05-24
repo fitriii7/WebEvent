@@ -102,6 +102,9 @@ Route::get('/dashboard/profile', 'App\Http\Controllers\ProfileController@index')
 Route::get('/dashboard/changepassword', 'App\Http\Controllers\ProfileController@password')->name
 ('dashboard.changepassword');
 
+Route::post('/dashboard/profile/changePasswordPost', 'App\Http\Controllers\ProfileController@changePasswordPost')->name
+('dashboard.changePasswordPost');
+
 Route::get('/dashboard/profile/edit', 'App\Http\Controllers\ProfileController@edit')->name
 ('dashboard.profile.edit');
 

@@ -6,7 +6,7 @@ use App\Models\Slider;
 use App\Models\Event;
 use Illuminate\Http\Request;
 use Auth;
-use Faker\Core\File;
+use File;
 
 class DashboardController extends Controller
 {
@@ -91,5 +91,11 @@ class DashboardController extends Controller
     public function payment()
     {
         return view('payment');
+    }
+
+    public function userDetailEvent()
+    {
+        return view ('user_eventdetail');
+
     }
 }

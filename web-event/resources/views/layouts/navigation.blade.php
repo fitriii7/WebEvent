@@ -19,7 +19,7 @@
             <a class="nav-link" href="{{route('dashboard.event')}}" style="font-size: 13pt;"><b>Event List</b></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{route('dashboard.event')}}" style="font-size: 13pt;"><b>Payment</b></a>
+            <a class="nav-link" href="{{route('dashboard.payment')}}" style="font-size: 13pt;"><b>Payment</b></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{route('dashboard.user')}}" style="font-size: 13pt;"><b>User List</b></a>

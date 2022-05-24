@@ -40,10 +40,7 @@
 
                                 <div class="flex items-center justify-end mt-4">
                                     <a href="{{ route('dashboard.profile.edit') }}" class="btn btn-outline-warning float-right ml-4">Edit</a>
-                                    @if (Route::has('password.request'))
-                                        <a href="{{ route('password.request') }}" class="btn btn-outline-dark float-right ml-4">Change Password</a>
-                                    @endif
-                                    
+                                    <a href="{{route('dashboard.changepassword') }}" class="btn btn-outline-dark float-right ml-4">Change Password</a>
                                 </div>
 
                             </form>

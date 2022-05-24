@@ -78,7 +78,7 @@
 
                                 <div class="form-group">
                                     <label for="">Event Summary</label>
-                                    <input type="textarea" name="event_summ" class="form-control"value="{{$event->event_summ}}"  required>
+                                    <input type="text" name="event_summ" class="form-control"value="{{$event->event_summ}}"  required>
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Event;
 use App\Models\EventCategory;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class MyEventController extends Controller
 {

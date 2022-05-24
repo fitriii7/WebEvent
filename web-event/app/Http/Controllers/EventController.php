@@ -7,6 +7,7 @@ use App\Models\EventCategory;
 use Illuminate\Http\Request;
 use carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class EventController extends Controller
 {
@@ -28,7 +29,7 @@ class EventController extends Controller
     }
 
     public function store( Request $request){
-
+        $statusdefault = 0;
         $startdate = $request->input('start_time');
         $format_startdate = date('Y-m-d', strtotime($startdate));
         $enddate = $request->input('end_time');
@@ -53,7 +54,7 @@ class EventController extends Controller
         $event->event_desc = $request->event_desc;
         $event->capacity = $request->input('capacity');
         $event->price = $request->input('price');
-        $event->status = $request->input('status');
+        $event->status = $statusdefault;
         $event->author = $request->input('author');
         $event->save();
         return redirect('dashboard/my-event')->with('statusadd', 'Content for New Event Added Successfully');

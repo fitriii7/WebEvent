@@ -84,7 +84,7 @@
 
                                 <div class="form-group">
                                     <label for="">Event Description</label>
-                                    <input type="text" name="event_desc" class="form-control" required>
+                                    <textarea type="text" name="event_desc" class="form-control" required></textarea>
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
